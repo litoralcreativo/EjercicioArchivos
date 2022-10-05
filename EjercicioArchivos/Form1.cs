@@ -57,6 +57,7 @@ namespace EjercicioArchivos
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
+                GuardarDatos();
                 try
                 {
                     archivo = new FileStream(ofd.FileName, FileMode.Open, FileAccess.Read);
@@ -64,7 +65,8 @@ namespace EjercicioArchivos
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message+ ex.InnerException.Message);
+                    MessageBox.Show(ex.Message);
+                    
                     listBox1.Items.Clear();
                     listBox1.Items.Add(":'(");
                 }
